@@ -33,6 +33,7 @@ public class RestaurantApp {
         
         System.out.print("CHOOSE AN OPTION >>> ");
         Scanner in = new Scanner(System.in);
+        
         //scanner
         int option = in.nextInt();
 
@@ -43,7 +44,7 @@ public class RestaurantApp {
             //scanner
             int countOrderProduct = in.nextInt();
             
-            if( countOrderProduct <= food_1_available_quantity && countOrderProduct > 0) {
+            if (countOrderProduct <= food_1_available_quantity && countOrderProduct > 0) {
             	double totalForPay = (double) countOrderProduct * FOOD_1_PRICE;
             	System.out.printf(" %d x \"%s\"   (%.2f%s) = %.2f %s\n" +
             					"Confirm order ( 1 - yes, 0 - no )?", 
@@ -53,28 +54,31 @@ public class RestaurantApp {
                 //scanner
             	int confirmOrder = in.nextInt();
             	
-            	if ( confirmOrder == 1) {
+            	if (confirmOrder == 1) {
             		System.out.printf("THANK YOU.\n" +
-            				"Your order will be available in 30 minutes!\n" + 
+            				"Your order will be available in 30 minutes!\n\n" + 
             				"Will you pick up the product or do you want it delivered?\n" + 
-            				"Choose an option order ( 1 - Delivery (fee - %.2f%s), 0 - Pickup (0%s) )? ",
+            				"Choose an option order ( 1 - Delivery (fee - %.2f%s), 0 - Pickup (fee - 0%s) )? ",
             			feeDelivery, CURRENCY, CURRENCY);
             		
             		//scanner
                 	int receiveOrder = in.nextInt();
+                	
                 	if (receiveOrder == 1 && totalForPay <= 199) {
                 		double totalForPayAndDelivery = (double) (countOrderProduct * FOOD_1_PRICE) + feeDelivery;
                     	System.out.printf(" %d x \"%s\"   (%.2f%s) = %.2f %s\n" +
                     					"+ Delivery fee: %.2f%s\n" +
-                    					"Total: %.2f%s" +
+                    					"Total: %.2f%s\n\n" +
                     					"Confirm order with Delivery fee ( 1 - yes, 0 - no )?", 
                     			countOrderProduct, FOOD_1_NAME, FOOD_1_PRICE, CURRENCY, totalForPay, CURRENCY, 
                     			feeDelivery, CURRENCY,
                     			totalForPayAndDelivery, CURRENCY
                     			);
+                    	
                     	//scanner
                     	int confirmOrderDelivery = in.nextInt();
-                    	if ( confirmOrderDelivery == 1 ) {
+                    	
+                    	if (confirmOrderDelivery == 1) {
                     		System.out.printf("THANK YOU.\n" +
                     				"Your order will be delivered in one hour!\n");
                     	} else {
@@ -82,17 +86,18 @@ public class RestaurantApp {
                     				"...seeing you soon!");
                     	}
                     
-                	}else if (receiveOrder == 1 && totalForPay > 199){
+                	} else if (receiveOrder == 1 && totalForPay > 199){
                 		System.out.printf("THANK YOU.\n" +
                 				"Delivery fee: 0%s\n" +
-                				"TOTAL: %f%s" +
+                				"TOTAL: %.2f%s\n" +
                 				"Your order will be delivered in one hour!\n", 
                 				CURRENCY,
                 				totalForPay, CURRENCY);
+                		
                 	}else if (receiveOrder == 0) {
                 		System.out.printf("THANK YOU.\n" +
                 				"Your order will be available in 30 minutes!\n" + 
-                				"we are waiting for you");
+                				"We are waiting for you");
                 	}
             		
             	} else {
