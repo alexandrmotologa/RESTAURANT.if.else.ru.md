@@ -23,13 +23,13 @@ public class RestaurantApp {
 
         // PRESENTATION & LOGIC LAYER
         System.out.printf("\n********** MENU ***********\n" +
-                        "1. \"%-5s\" %12.2f %s\n" +
-                        "2. \"%-8s\" %9.2f %s\n" +
-                        "3. \"%-5s\" %12.2f %s\n" +
+                        "1. %-10s %7.2f %s\n" +
+                        "2. %-10s %7.2f %s\n" +
+                        "3. %-10s %7.2f %s\n" +
                         "***************************\n\n",
-                FOOD_1_NAME, FOOD_1_PRICE, CURRENCY,
-                FOOD_2_NAME, FOOD_2_PRICE, CURRENCY,
-                FOOD_3_NAME, FOOD_3_PRICE, CURRENCY);
+                "\""+ FOOD_1_NAME + "\"", FOOD_1_PRICE, CURRENCY,
+                "\""+ FOOD_2_NAME + "\"", FOOD_2_PRICE, CURRENCY,
+                "\""+ FOOD_3_NAME + "\"", FOOD_3_PRICE, CURRENCY);
         
         System.out.print("CHOOSE AN OPTION >>> ");
         Scanner in = new Scanner(System.in);
